@@ -6,10 +6,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT
 const conectionString = process.env.ConectionString
-mongoose.connect(conectionString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(conectionString);
 
 const contactSchema = new mongoose.Schema({
   name: String,
