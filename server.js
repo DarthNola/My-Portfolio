@@ -7,7 +7,7 @@ const cors = require('cors');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT
-const conectionString = process.env.ConectionString;
+const conectionString = 'mongodb+srv://nola:mongoProject255@contactdetails.1wqxh6d.mongodb.net/?retryWrites=true&w=majority';
 
 
 mongoose.connect(conectionString);
