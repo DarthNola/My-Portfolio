@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
   
 function saveContact(data) {
-    fetch(' https://portfolio-server-v106.onrender.com/save-contact', {
+    fetch(' /save-contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

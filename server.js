@@ -25,8 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()); 
 
+app.use(express.static('public'));
+
+// Your existing route for serving index.html
 app.get('/', (req, res) => {
-  fs.readFile('./index.html', null, function(error, data) {
+  fs.readFile('./public/index.html', 'utf8', function(error, data) {
     if (error) {
       res.writeHead(404);
       res.write('Whoops! File not found!');
