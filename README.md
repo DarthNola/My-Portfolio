@@ -1,9 +1,9 @@
-#Vuyo Fortune Mathe - Software Engineer
-##Website CV
+# Vuyo Fortune Mathe - Software Engineer
+## Website CV
 About
 Hello, it's me, Vuyo Fortune Mathe! I'm currently in my 4th year of Bachelor of Computing, aspiring to become a Software Engineer.
 
-##Website Structure
+## Website Structure
 Home
 About Me
 Hobbies
@@ -13,7 +13,7 @@ Contact
 About Me
 I'm a prospective Software Engineer with a natural curiosity that led me to computer science. My journey involves breaking toys and electronic devices to understand how things work. Now, my passion lies in building things on a laptop that can potentially change the world.
 
-###Hobbies
+### Hobbies
 As I crave more activity, my hobbies include:
 
 Basketball
@@ -39,5 +39,5 @@ An app built to learn React basics, utilizing a fetch API to generate data.
 Thetha My ChatApp
 
 A chatroom application using React and Firebase, featuring real-time message updates and Google authentication. MongoDB is used for database storage.
-###Contact Me!
+### Contact Me!
 Visit the website at [Your Website URL] to explore more about me and get in touch!
