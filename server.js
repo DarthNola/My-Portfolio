@@ -1,3 +1,5 @@
+
+const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -5,7 +7,8 @@ const cors = require('cors');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT
-const conectionString = 'mongodb+srv://nola:mongoProject255@contactdetails.1wqxh6d.mongodb.net/?retryWrites=true&w=majority'
+const conectionString = 'mongodb+srv://nola:mongoProject255@contactdetails.1wqxh6d.mongodb.net/?retryWrites=true&w=majority';
+
 
 mongoose.connect(conectionString);
 
@@ -22,7 +25,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()); 
 
-app.use(express.static('public'));
+app.get('/', (req, res) => {
+  fs.readFile('./index.html', null, function(error, data) {
+    if (error) {
+      res.writeHead(404);
+      res.write('Whoops! File not found!');
+    } else {
+      res.write(data);
+    }
+    res.end();
+  });
+});
 
 app.post('/save-contact', async (req, res) => {
   const contactData = req.body;
