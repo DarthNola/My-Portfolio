@@ -1,18 +1,17 @@
 
-
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-menuIcon.onclick=()=>{
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-}
-
-
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
-
-window.onscroll= ()=>{
+document.addEventListener('DOMContentLoaded', function() {
+  let menuIcon = document.querySelector('#menu-icon');
+  let navbar = document.querySelector('.navbar');
+  
+  menuIcon.onclick=()=>{
+      menuIcon.classList.toggle('bx-x');
+      navbar.classList.toggle('active');
+  }
+  
+  
+  let sections = document.querySelectorAll('.main-section');
+  let navLinks = document.querySelectorAll('header nav a');
+  window.onscroll= ()=>{
     sections.forEach(sec =>{
         let top = window.scrollY;
         let offset = sec.offsetTop-150;
@@ -22,7 +21,11 @@ window.onscroll= ()=>{
         if(top>=offset && top <offset+height){
             navLinks.forEach(links =>{
                 links.classList.remove('active');
-                document.querySelector('header nav a[href*='+id+']').classList.add('active');
+                if (links.href.includes(`#${id}`))
+                {
+                  links.classList.add('active');
+                }
+                
             });
 
         };
@@ -46,9 +49,8 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
-ScrollReveal().reveal('.home-img, .skills-container, .portfolio-box, .contact', {origin: 'bottom'});
-ScrollReveal().reveal('.home-content h1, .about-img img', {origin: 'left'});
-ScrollReveal().reveal('.home-content p, .about-content', {origin: 'right'});
+ScrollReveal().reveal('.home-img, .skills-container, .portfolio-box, .contact,.home-content h1, .about-img img,.home-content p, .about-content', {origin: 'bottom'});
+
 
 const typed = new Typed('.multi-text', {
     strings: ['Aspiring' ,'Software Developer','full-stack Developer', 'Honours Student'],
@@ -61,9 +63,7 @@ const typed = new Typed('.multi-text', {
 
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById('contactForm');
   
     contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Handle the error or provide a console.log message for debugging.
         }
     });
-})
+
   
 function saveContact(data) {
     fetch(' /save-contact', {
@@ -131,4 +131,10 @@ function saveContact(data) {
         }, 3000); 
       }
       
+});
+
+
+
+
+
   
